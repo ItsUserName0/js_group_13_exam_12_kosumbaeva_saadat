@@ -1,15 +1,19 @@
-<div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 16px">
-  <h3><strong>{{ author }}'s</strong> gallery</h3>
-  <a routerLink="/images/new" mat-raised-button *ngIf="params === userData?._id">Add new photo</a>
-</div>
+<mat-spinner *ngIf="loading | async; else imagesArea"></mat-spinner>
 
-<div fxLayout="row wrap" fxLayoutGap="16px">
-  <app-image *ngFor="let i of (images | async)" [image]="i">
+<ng-template #imagesArea>
+  <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 16px">
+    <h3><strong>{{ author }}'s</strong> gallery</h3>
+    <a routerLink="/images/new" mat-raised-button *ngIf="params === userData?._id">Add new photo</a>
+  </div>
+
+  <div fxLayout="row wrap" fxLayoutGap="16px">
+    <app-image *ngFor="let i of (images | async)" [image]="i">
       <div *appHasRights="i.user._id">
         <button mat-raised-button color="warn" (click)="removeImage()">
           <mat-spinner *ngIf="false" diameter="30"></mat-spinner>
           <span *ngIf="true">Delete</span>
         </button>
       </div>
-  </app-image>
-</div>
+    </app-image>
+  </div>
+</ng-template>

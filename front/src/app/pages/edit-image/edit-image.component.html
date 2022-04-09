@@ -12,9 +12,9 @@
       <mat-error *ngIf="title.touched && title.hasError('required')">Image is required!</mat-error>
     </mat-form-field>
 
-    <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">
-      <mat-spinner *ngIf="false" diameter="30"></mat-spinner>
-      <span *ngIf="true">Create photo</span>
+    <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid || (loading | async)">
+      <mat-spinner *ngIf="loading | async" diameter="30"></mat-spinner>
+      <span *ngIf="!(loading | async)">Create photo</span>
     </button>
   </form>
 </app-centered-card>

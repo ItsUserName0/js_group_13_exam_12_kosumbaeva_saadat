@@ -13,6 +13,8 @@ export type UsersState = {
 export type ImagesState = {
   items: Image[],
   fetchLoading: boolean,
+  createLoading: boolean,
+  createError: null | string,
 }
 
 export type AppState = {
