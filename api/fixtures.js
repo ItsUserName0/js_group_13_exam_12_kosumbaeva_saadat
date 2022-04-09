@@ -18,15 +18,13 @@ const run = async () => {
       password: '123',
       displayName: 'John Doe',
       avatar: 'avatars/user1.png',
-      role: 'user',
       token: nanoid(),
     },
     {
-      email: 'admin@admin',
+      email: 'user2@user',
       password: '123',
-      displayName: 'Admin',
+      displayName: 'Jane Shepard',
       avatar: 'avatars/user2.jpg',
-      role: 'admin',
       token: nanoid(),
     },
   );

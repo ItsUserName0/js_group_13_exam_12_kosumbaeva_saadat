@@ -33,7 +33,9 @@ const createMulter = dirName => {
 };
 
 const avatars = createMulter('avatars');
+const images = createMulter('image');
 
 module.exports = {
   avatars,
+  images,
 };
