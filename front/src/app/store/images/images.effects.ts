@@ -44,10 +44,7 @@ export class ImagesEffects {
         this.helpers.openSnackBar('Uploaded successful!');
         void this.router.navigate(['/']);
       }),
-      catchError(() => {
-        this.helpers.openSnackBar('Something went wrong!');
-        return of(createImageFailure({error: 'Wrong data!'}));
-      })
+      this.helpers.catchServerError(createImageFailure),
     )),
   ));
 

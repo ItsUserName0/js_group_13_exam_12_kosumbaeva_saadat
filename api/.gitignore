@@ -2,5 +2,4 @@
 node_modules
 public/*
 !public/fixtures
-!public/avatars/user1.png
-!public/avatars/user2.jpg
+!public/avatars

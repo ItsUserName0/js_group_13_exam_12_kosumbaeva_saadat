@@ -16,3 +16,13 @@ export interface ImageData {
   title: string,
   image: File,
 }
+
+export interface FieldError {
+  message: string,
+}
+
+export interface CreateError {
+  errors: {
+    image: FieldError,
+  },
+}

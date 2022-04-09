@@ -1,8 +1,10 @@
+const fs = require("fs").promises;
 const express = require('express');
 const roles = require("../middleware/roles");
 const auth = require('../middleware/auth');
 const {images} = require('../multer');
 const Image = require('../models/Image');
+const mongoose = require("mongoose");
 
 const router = express.Router();
 
@@ -39,6 +41,13 @@ router.post('/', auth, images.single('image'), async (req, res, next) => {
 
     return res.send(image);
   } catch (e) {
+    if (e instanceof mongoose.Error.ValidationError) {
+      if (req.file) {
+        await fs.unlink(req.file.path);
+      }
+
+      return res.status(422).send(e);
+    }
     next(e);
   }
 });

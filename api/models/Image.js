@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
+const path = require("path");
 const Schema = mongoose.Schema;
+
+const imageExtensions = ['.jpg', '.jpeg', '.png', '.jfif', '.pjpeg' , '.pjp', '.gif', '.avif'];
 
 const ImageSchema = new Schema({
   user: {
@@ -14,6 +17,13 @@ const ImageSchema = new Schema({
   image: {
     type: String,
     required: true,
+    validate: {
+      validator: function (value) {
+        const ext = path.extname(value);
+        return imageExtensions.includes(ext);
+      },
+      message: 'Image file format is incorrect!',
+    }
   },
 });
 
