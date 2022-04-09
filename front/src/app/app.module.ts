@@ -28,6 +28,11 @@ import { environment } from '../environments/environment';
 import { AuthInterceptor } from './auth.interceptor';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AppStoreModule } from './store/app-store.module';
+import { ImagesComponent } from './pages/images/images.component';
+import { EditImageComponent } from './pages/edit-image/edit-image.component';
+import { ImageComponent } from './ui/image/image.component';
+import { UserImagesComponent } from './pages/user-images/user-images.component';
+import { ImageModalComponent } from './ui/image-modal/image-modal.component';
 
 const socialConfig: SocialAuthServiceConfig = {
   autoLogin: false,
@@ -52,6 +57,11 @@ const socialConfig: SocialAuthServiceConfig = {
     ImagePipe,
     UserTypeDirective,
     HasRolesDirective,
+    ImagesComponent,
+    EditImageComponent,
+    ImageComponent,
+    UserImagesComponent,
+    ImageModalComponent,
   ],
   imports: [
     BrowserModule,

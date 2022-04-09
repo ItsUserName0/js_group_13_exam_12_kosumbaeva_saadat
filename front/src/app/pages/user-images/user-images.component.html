@@ -1,0 +1,15 @@
+<div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 16px">
+  <h3>John Doe's gallery</h3>
+  <a routerLink="/images/new" mat-raised-button>Add new photo</a>
+</div>
+
+<div fxLayout="row wrap">
+  <app-image>
+      <div>
+        <button mat-raised-button color="warn" (click)="removeImage()">
+          <mat-spinner *ngIf="false" diameter="30"></mat-spinner>
+          <span *ngIf="true">Delete</span>
+        </button>
+      </div>
+  </app-image>
+</div>
