@@ -1,7 +1,7 @@
-<div fxLayout="row wrap" fxLayoutGap="16px">
-  <app-image></app-image>
-  <app-image></app-image>
-  <app-image></app-image>
-  <app-image></app-image>
-  <app-image></app-image>
-</div>
+<mat-spinner *ngIf="loading | async; else imagesArea"></mat-spinner>
+
+<ng-template #imagesArea>
+  <div fxLayout="row wrap" fxLayoutGap="16px">
+    <app-image *ngFor="let i of (images | async)" [image]="i"></app-image>
+  </div>
+</ng-template>

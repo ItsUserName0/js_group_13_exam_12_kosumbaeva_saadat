@@ -1,4 +1,5 @@
 import { LoginError, RegisterError, User } from '../models/user.model';
+import { Image } from '../models/image.model';
 
 export type UsersState = {
   user: null | User,
@@ -9,6 +10,12 @@ export type UsersState = {
   fbLoginLoading: boolean,
 };
 
+export type ImagesState = {
+  items: Image[],
+  fetchLoading: boolean,
+}
+
 export type AppState = {
   users: UsersState,
+  images: ImagesState,
 };
