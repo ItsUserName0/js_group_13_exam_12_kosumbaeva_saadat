@@ -15,6 +15,7 @@ export type ImagesState = {
   fetchLoading: boolean,
   createLoading: boolean,
   createError: null | string,
+  removeLoading: boolean,
 }
 
 export type AppState = {

@@ -1,4 +1,8 @@
 <app-centered-card title="Add new photo">
+  <div class="error" *ngIf="error | async">
+    {{ error| async }}
+  </div>
+
   <form #f="ngForm" fxLayout="column" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="outline">
       <mat-label>Title</mat-label>

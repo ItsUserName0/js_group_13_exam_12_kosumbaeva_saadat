@@ -10,7 +10,7 @@ export class ImagesService {
 
   constructor(private http: HttpClient) { }
 
-  fetchImages(id: null | string) {
+  fetchImages(id?: string) {
     const url = id ? `/images?user=${id}` : '/images';
     return this.http.get<Image[]>(environment.apiUrl + url);
   }
@@ -25,5 +25,9 @@ export class ImagesService {
     });
 
     return this.http.post(environment.apiUrl + '/images', formData);
+  }
+
+  removeImage(imageId: string) {
+    return this.http.delete(environment.apiUrl + '/images/' + imageId);
   }
 }

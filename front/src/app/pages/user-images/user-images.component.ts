@@ -4,7 +4,7 @@ import { AppState } from '../../store/types';
 import { Observable, Subscription } from 'rxjs';
 import { Image } from '../../models/image.model';
 import { ActivatedRoute } from '@angular/router';
-import { fetchImagesRequest } from '../../store/images/images.actions';
+import { fetchImagesRequest, removeImageRequest } from '../../store/images/images.actions';
 import { User } from '../../models/user.model';
 
 @Component({
@@ -19,6 +19,8 @@ export class UserImagesComponent implements OnInit, OnDestroy {
   images: Observable<Image[]>;
   imagesSub!: Subscription;
   loading: Observable<boolean>;
+  removeLoading: Observable<boolean>;
+  currentImage = '';
 
   params: string | undefined;
   author!: string;
@@ -28,6 +30,7 @@ export class UserImagesComponent implements OnInit, OnDestroy {
     this.user = store.select(state => state.users.user);
     this.images = store.select(state => state.images.items);
     this.loading = store.select(state => state.images.fetchLoading);
+    this.removeLoading = store.select(state => state.images.removeLoading);
   }
 
   ngOnInit(): void {
@@ -47,8 +50,9 @@ export class UserImagesComponent implements OnInit, OnDestroy {
     });
   }
 
-  removeImage() {
-
+  removeImage(imageId: string) {
+    this.currentImage = imageId;
+    this.store.dispatch(removeImageRequest({imageId: imageId, userId: this.userData?._id}));
   }
 
   ngOnDestroy(): void {

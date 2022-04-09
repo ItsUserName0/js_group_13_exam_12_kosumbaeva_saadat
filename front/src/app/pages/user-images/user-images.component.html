@@ -9,9 +9,9 @@
   <div fxLayout="row wrap" fxLayoutGap="16px">
     <app-image *ngFor="let i of (images | async)" [image]="i">
       <div *appHasRights="i.user._id">
-        <button mat-raised-button color="warn" (click)="removeImage()">
-          <mat-spinner *ngIf="false" diameter="30"></mat-spinner>
-          <span *ngIf="true">Delete</span>
+        <button mat-raised-button color="warn" (click)="removeImage(i._id)">
+          <mat-spinner *ngIf="(removeLoading | async) && currentImage === i._id" diameter="30"></mat-spinner>
+          <span *ngIf="!(removeLoading | async) || currentImage !== i._id">Delete</span>
         </button>
       </div>
     </app-image>

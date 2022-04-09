@@ -20,7 +20,7 @@ export class ImagesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(fetchImagesRequest({id: null}));
+    this.store.dispatch(fetchImagesRequest({}));
   }
 
 }
