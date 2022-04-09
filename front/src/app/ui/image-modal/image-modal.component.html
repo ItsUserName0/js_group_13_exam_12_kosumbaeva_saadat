@@ -1,1 +1,7 @@
-<p>image-modal works!</p>
+<div mat-dialog-content *ngIf="data.data">
+  <img [src]="data.data.image | image" [alt]="data.data.title">
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCloseClick()">Close</button>
+</div>
+

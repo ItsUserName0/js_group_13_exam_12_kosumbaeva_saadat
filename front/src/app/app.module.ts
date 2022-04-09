@@ -33,6 +33,7 @@ import { EditImageComponent } from './pages/edit-image/edit-image.component';
 import { ImageComponent } from './ui/image/image.component';
 import { UserImagesComponent } from './pages/user-images/user-images.component';
 import { ImageModalComponent } from './ui/image-modal/image-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const socialConfig: SocialAuthServiceConfig = {
   autoLogin: false,
@@ -81,6 +82,7 @@ const socialConfig: SocialAuthServiceConfig = {
     SocialLoginModule,
     MatProgressSpinnerModule,
     AppStoreModule,
+    MatDialogModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},

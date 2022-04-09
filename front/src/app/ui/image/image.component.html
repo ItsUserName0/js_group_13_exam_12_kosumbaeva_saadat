@@ -1,4 +1,4 @@
-<mat-card class="card" *ngIf="image; else emptyArea">
+<mat-card class="card" *ngIf="image; else emptyArea" (click)="openDialog()">
   <mat-card-content fxLayout="column">
     <img
       [src]="image.image | image"
