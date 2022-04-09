@@ -1,6 +1,6 @@
 import { ImagesState } from '../types';
 import { createReducer, on } from '@ngrx/store';
-import { fetchImagesFailure, fetchImagesRequest, fetchImagesSuccess } from './images.actions';
+import { fetchImagesFailure, fetchImagesRequest, fetchImagesSuccess, } from './images.actions';
 
 const initialState: ImagesState = {
   items: [],

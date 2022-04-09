@@ -2,6 +2,8 @@
 
 <ng-template #imagesArea>
   <div fxLayout="row wrap" fxLayoutGap="16px">
-    <app-image *ngFor="let i of (images | async)" [image]="i"></app-image>
+    <app-image *ngFor="let i of (images | async)" [image]="i">
+      <p>By: <a [routerLink]="['/users', i.user._id]">{{ i.user.displayName }}</a></p>
+    </app-image>
   </div>
 </ng-template>

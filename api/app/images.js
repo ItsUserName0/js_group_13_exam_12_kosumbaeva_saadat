@@ -10,8 +10,8 @@ router.get('/', roles, async (req, res, next) => {
   try {
     let images;
 
-    if (req.query.user && req.user && req.user._id.toString() === req.query.user) {
-      images = await Image.find({user: req.user._id}, null, {sort: {'_id': -1}}).populate('user', '_id displayName');
+    if (req.query.user) {
+      images = await Image.find({user: req.query.user}, null, {sort: {'_id': -1}}).populate('user', '_id displayName');
     } else {
       images = await Image.find().sort({_id: -1}).populate('user', '_id displayName');
     }

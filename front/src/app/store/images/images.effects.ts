@@ -10,7 +10,8 @@ export class ImagesEffects {
   constructor(private actions: Actions,
               private helpers: HelpersService,
               private imagesService: ImagesService,
-  ) { }
+  ) {
+  }
 
   fetchImages = createEffect(() => this.actions.pipe(
     ofType(fetchImagesRequest),

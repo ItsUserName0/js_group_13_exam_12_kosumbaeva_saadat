@@ -22,7 +22,7 @@ import { FileInputComponent } from './ui/file-input/file-input.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ImagePipe } from './pipes/image.pipe';
 import { UserTypeDirective } from './directives/user-type.directive';
-import { HasRolesDirective } from './directives/has-roles.directive';
+import { HasRightsDirective } from './directives/has-rights.directive';
 import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 import { environment } from '../environments/environment';
 import { AuthInterceptor } from './auth.interceptor';
@@ -56,7 +56,7 @@ const socialConfig: SocialAuthServiceConfig = {
     FileInputComponent,
     ImagePipe,
     UserTypeDirective,
-    HasRolesDirective,
+    HasRightsDirective,
     ImagesComponent,
     EditImageComponent,
     ImageComponent,

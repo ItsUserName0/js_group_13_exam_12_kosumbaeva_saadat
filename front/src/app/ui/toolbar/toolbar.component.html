@@ -7,7 +7,7 @@
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item disabled>{{ userData?.displayName }}</button>
-        <a mat-menu-item routerLink="/users/id">My gallery</a>
+        <a mat-menu-item [routerLink]="['/users', userData?._id]">My gallery</a>
         <button mat-menu-item (click)="logout()">Logout</button>
       </mat-menu>
     </nav>

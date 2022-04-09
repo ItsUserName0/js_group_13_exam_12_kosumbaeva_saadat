@@ -5,11 +5,11 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../store/types';
 
 @Directive({
-  selector: '[appHasRoles]'
+  selector: '[appHasRights]'
 })
-export class HasRolesDirective implements OnInit, OnDestroy {
-  @Input('appHasRoles') roles!: string[];
-  @Input('appHasRolesElse') elseTemplate?: TemplateRef<any>;
+export class HasRightsDirective implements OnInit, OnDestroy {
+  @Input('appHasRights') ownerId!: string;
+  @Input('appHasRightsElse') elseTemplate?: TemplateRef<any>;
 
   user: Observable<null | User>;
   userSub!: Subscription;
@@ -24,7 +24,7 @@ export class HasRolesDirective implements OnInit, OnDestroy {
     this.userSub = this.user.subscribe(user => {
       this.viewContainer.clear();
 
-      if (user && this.roles.includes(user.role)) {
+      if (user && this.ownerId === user._id) {
         this.viewContainer.createEmbeddedView(this.templateRef);
       } else if (this.elseTemplate) {
         this.viewContainer.createEmbeddedView(this.elseTemplate);
